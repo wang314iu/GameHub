@@ -12,7 +12,7 @@ const GameCardContainer = ({ children }: { children: ReactNode }) => {
       }}
       borderRadius={6}
       overflow="hidden"
-      shadow={"md"}
+      shadow={"dark-lg"}
     >
       {children}
     </Card>
