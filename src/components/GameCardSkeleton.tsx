@@ -1,12 +1,12 @@
-import { Card, CardBody, Skeleton, SkeletonText } from "@chakra-ui/react";
+import { CardBody, Skeleton, SkeletonText } from "@chakra-ui/react";
 const GameCardSkeleton = () => {
   return (
-    <Card width="100%" borderRadius={6}>
-      <Skeleton height="194px" />
+    <>
+      <Skeleton height="194px" startColor="#cc99ff" endColor=" #66ff66" />
       <CardBody>
-        <SkeletonText />
+        <SkeletonText startColor="#cc99ff" endColor="#66ff66" />
       </CardBody>
-    </Card>
+    </>
   );
 };
 export default GameCardSkeleton;
