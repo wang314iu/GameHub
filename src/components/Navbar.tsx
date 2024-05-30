@@ -1,21 +1,22 @@
-import { HStack, Image } from "@chakra-ui/react";
+import { HStack, Image, useColorModeValue } from "@chakra-ui/react";
 import Duck from "../assets/img/cyberDuck.gif";
 import ThemeSwitch from "./ThemeSwitch";
 import GameSearch from "./GameSearch";
 
-// TODO : improve
 interface Props {
   onSearch: (searchText: string) => void;
 }
 
 const NavBar = ({ onSearch }: Props) => {
+  const bgColor = useColorModeValue("rgba(255,255,255)", "#1A202C");
   return (
     <HStack
       justifyContent="space-between"
-      boxShadow="lg"
       paddingInline="unset"
       paddingX={{ base: 1, md: 5 }}
       height="67px"
+      bg={bgColor}
+      boxShadow="0px 4px 25px #9c88d2"
     >
       <Image
         borderRadius={10}

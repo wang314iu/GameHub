@@ -8,9 +8,7 @@ import {
   GameHeading,
 } from "./components";
 import { useState } from "react";
-import { Genre } from "./hooks/useGenre";
-import { Platform } from "./hooks/useParentPlatforms";
-import { SortBy } from "./hooks/useGames";
+import { Platform, SortBy, Genre } from "./types";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
@@ -28,22 +26,42 @@ function App() {
       }}
       templateColumns={{
         base: "1fr",
-        lg: "200px 1fr",
+        lg: "260px 1fr",
       }}
     >
-      <GridItem area="nav">
+      <GridItem area="nav" position="sticky" top={0} zIndex={999}>
         <NavBar onSearch={setSearchBy} />
       </GridItem>
       {/* only render on lg or bigger screen */}
+      {/* genre list */}
       <Show above="lg">
-        <GridItem area="sidebar" paddingX={1}>
+        <GridItem
+          area="sidebar"
+          paddingX={1}
+          paddingBottom={8}
+          position="fixed"
+          maxHeight="calc(100vh - 70px)"
+          overflowY="auto"
+          top="70px"
+        >
           <GenreList
             onSelectGenre={setSelectedGenre}
             selectedGenre={selectedGenre}
           />
         </GridItem>
       </Show>
-      <GridItem area="main">
+      {/* Main content */}
+      <GridItem
+        area="main"
+        paddingX={4}
+        paddingBottom={8}
+        position={{ lg: "fixed" }}
+        maxHeight="calc(100vh - 70px)"
+        overflowY="auto"
+        top="70px"
+        left="260px"
+        right="0"
+      >
         <GameHeading
           genre={selectedGenre?.name}
           platform={selectedPlatform?.name}

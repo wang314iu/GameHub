@@ -1,4 +1,4 @@
-import { HStack, Switch, useColorMode } from "@chakra-ui/react";
+import { HStack, useColorMode, IconButton } from "@chakra-ui/react";
 import { CiLight, CiDark } from "react-icons/ci";
 
 const ThemeSwitch = () => {
@@ -6,13 +6,18 @@ const ThemeSwitch = () => {
 
   return (
     <HStack>
-      <Switch
-        isChecked={colorMode === "dark"}
-        onChange={toggleColorMode}
-        size="lg"
-        colorScheme="green"
-      />
-      {colorMode === "dark" ? <CiDark size="30px" /> : <CiLight size="30px" />}
+      <IconButton
+        onClick={toggleColorMode}
+        aria-label="Toggle theme"
+        backgroundColor="transparent"
+        icon={
+          colorMode === "dark" ? (
+            <CiDark size="30px" />
+          ) : (
+            <CiLight size="30px" />
+          )
+        }
+      ></IconButton>
     </HStack>
   );
 };

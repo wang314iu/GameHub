@@ -15,7 +15,7 @@ const GameSearch = ({ onSearch }: Props) => {
     }
   };
   return (
-    <form onSubmit={onSubmit} style={{ width: "100%" }}>
+    <form onSubmit={onSubmit} style={{ width: "90%" }}>
       <InputGroup>
         <InputLeftElement pointerEvents="none">
           <IoSearchSharp color="gray.300" />
@@ -23,7 +23,7 @@ const GameSearch = ({ onSearch }: Props) => {
         <Input
           ref={inputRef}
           focusBorderColor="green.200"
-          borderRadius={12}
+          borderRadius={20}
           placeholder="Search game..."
         ></Input>
       </InputGroup>
