@@ -1,10 +1,5 @@
 import useData from "./useData";
-
-export interface Platform {
-  id: number;
-  name: string;
-  slug: string;
-}
+import { Platform } from "../types";
 
 const useParentPlatforms = () => useData<Platform>("/platforms/lists/parents");
 

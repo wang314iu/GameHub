@@ -3,7 +3,7 @@ import useData from "./useData";
 export interface Genre {
   name: string;
   id: number;
-  game_count: number;
+  games_count: number;
   image_background: string;
 }
 

@@ -4,3 +4,6 @@ export { default as GameGrids } from "./GameGrids";
 export { default as GenreList } from "./GenreList";
 export { default as GameCardContainer } from "./GameCardContainer";
 export { default as PlatformDropdown } from "./PlatformDropdown";
+export { default as SortedByDropdown } from "./SortedByDropdown";
+export { default as GameSearch } from "./GameSearch";
+export { default as GameHeading } from "./GameHeading";

@@ -6,8 +6,9 @@ import {
   Button,
   SkeletonText,
 } from "@chakra-ui/react";
-import useGenre, { Genre } from "../hooks/useGenre";
+import { Genre } from "../types";
 import getCroppedImgUrl from "../services/img-url";
+import Genres from "../assets/genres.json";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
@@ -15,46 +16,30 @@ interface Props {
 }
 
 const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
-  const { data, loading } = useGenre();
   return (
-    <>
-      {loading && (
-        <SkeletonText
-          noOfLines={30}
-          spacing="3"
-          skeletonHeight="9"
-          startColor="#cc99ff"
-          endColor="#66ff66"
-          marginTop={2}
-        />
-      )}
-
-      {!loading && (
-        <List>
-          {data.map((genre) => (
-            <ListItem key={genre.id} marginY="10px" width="100%">
-              <Button
-                fontSize="lg"
-                variant="ghost"
-                isTruncated
-                onClick={() => onSelectGenre(genre)}
-                justifyContent="flex-start"
-                width="100%"
-                isActive={genre.name === selectedGenre?.name}
-              >
-                <Image
-                  boxSize="32px"
-                  borderRadius={8}
-                  marginRight={2}
-                  src={getCroppedImgUrl(genre.image_background, 600, 400)}
-                ></Image>
-                {genre.name}
-              </Button>
-            </ListItem>
-          ))}
-        </List>
-      )}
-    </>
+    <List>
+      {Genres.map((genre) => (
+        <ListItem key={genre.id} marginY="12px" width="100%">
+          <Button
+            fontSize="lg"
+            variant="ghost"
+            isTruncated
+            onClick={() => onSelectGenre(genre)}
+            justifyContent="flex-start"
+            width="100%"
+            isActive={genre.name === selectedGenre?.name}
+          >
+            <Image
+              boxSize="32px"
+              borderRadius={8}
+              marginRight={2}
+              src={getCroppedImgUrl(genre.image_background, 600, 400)}
+            ></Image>
+            {genre.name}
+          </Button>
+        </ListItem>
+      ))}
+    </List>
   );
 };
 
