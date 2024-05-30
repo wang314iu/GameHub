@@ -12,7 +12,7 @@ export interface Game {
   parent_platforms: { platform: Platform }[];
 }
 
-const uesGames = () => {
-  return useData<Game>("/games");
+const uesGames = (params?: object, deps?: any[]) => {
+  return useData<Game>("/games", params, deps);
 };
 export default uesGames;

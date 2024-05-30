@@ -5,7 +5,7 @@ import ThemeSwitch from "./ThemeSwitch";
 const NavBar = () => {
   return (
     // hstack is flex layout
-    <HStack justifyContent="space-between" paddingRight="10px">
+    <HStack justifyContent="space-between">
       <Image
         src={Duck}
         boxSize="60px"
