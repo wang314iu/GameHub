@@ -23,7 +23,9 @@ export interface Game {
 }
 
 export interface GameInfo {
+  name: string;
   description: string;
   website: string;
   released: string;
+  platforms: Platform[];
 }

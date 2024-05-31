@@ -1,10 +1,11 @@
-import { SimpleGrid, Text } from "@chakra-ui/react";
+import { SimpleGrid, Text, useDisclosure } from "@chakra-ui/react";
 import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
-
 import { Platform, SortBy, Genre } from "../types";
+import GameDetails from "./GameDetails";
+import { useState } from "react";
 
 interface Props {
   selectedGenre: Genre | null;
@@ -37,6 +38,8 @@ const GameGrids = ({
   ];
   const { data, err, loading } = useGames(reqParams, useEffectDeps);
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [gameId, setGameId] = useState<number | null>(null);
 
   return (
     <>
@@ -51,12 +54,20 @@ const GameGrids = ({
         {!loading &&
           data.map((game) => (
             <GameCardContainer key={game.id}>
-              <GameCard game={game} />
+              <GameCard
+                game={game}
+                onClick={() => {
+                  setGameId(game.id);
+                  onOpen();
+                }}
+              />
             </GameCardContainer>
           ))}
 
         {!loading && data.length === 0 && <Text>No game found.</Text>}
       </SimpleGrid>
+
+      <GameDetails id={gameId} isOpen={isOpen} onClose={onClose} />
     </>
   );
 };

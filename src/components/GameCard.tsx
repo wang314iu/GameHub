@@ -4,9 +4,9 @@ import PlatformIcons from "./PlatformIcons";
 import Score from "./Score";
 import getCroppedImgUrl from "../services/img-url";
 
-const GameCard = ({ game }: { game: Game }) => {
+const GameCard = ({ game, onClick }: { game: Game; onClick: () => void }) => {
   return (
-    <CardBody padding={0}>
+    <CardBody padding={0} onClick={onClick}>
       <Image src={getCroppedImgUrl(game.background_image, 600, 400)} />
       <HStack justifyContent={"space-between"} margin={2}>
         <PlatformIcons
