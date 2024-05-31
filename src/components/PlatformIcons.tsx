@@ -32,7 +32,7 @@ const PlatformIcons = ({ platforms }: Props) => {
 
   return (
     <HStack margin={1}>
-      {platforms.map((platform) => (
+      {platforms?.map((platform) => (
         //todo: adding id
         <Icon
           size="25px"

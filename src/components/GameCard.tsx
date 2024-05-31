@@ -10,7 +10,7 @@ const GameCard = ({ game, onClick }: { game: Game; onClick: () => void }) => {
       <Image src={getCroppedImgUrl(game.background_image, 600, 400)} />
       <HStack justifyContent={"space-between"} margin={2}>
         <PlatformIcons
-          platforms={game.parent_platforms.map((p) => p.platform)}
+          platforms={game.parent_platforms?.map((p) => p.platform)}
         />
         <Score score={game.rating} />
       </HStack>
