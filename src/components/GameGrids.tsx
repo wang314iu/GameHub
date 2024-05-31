@@ -63,8 +63,6 @@ const GameGrids = ({
               />
             </GameCardContainer>
           ))}
-
-        {!loading && data.length === 0 && <Text>No game found.</Text>}
       </SimpleGrid>
 
       <GameDetails id={gameId} isOpen={isOpen} onClose={onClose} />
