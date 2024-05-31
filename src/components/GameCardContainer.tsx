@@ -9,8 +9,9 @@ const GameCardContainer = ({ children }: { children: ReactNode }) => {
       }}
       borderRadius={6}
       overflow="hidden"
-      shadow={"dark-lg"}
-      minHeight="220px"
+      boxShadow={"dark-lg"}
+      minHeight="270px"
+      _hover={{ boxShadow: "0 4px 12px #D9D1EE", cursor: "pointer" }}
     >
       {children}
     </Card>

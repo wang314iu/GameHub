@@ -21,3 +21,9 @@ export interface Game {
   rating: number;
   parent_platforms: { platform: Platform }[];
 }
+
+export interface GameInfo {
+  description: string;
+  website: string;
+  released: string;
+}

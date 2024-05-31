@@ -26,7 +26,7 @@ const GameGrids = ({
     ordering: sortBy?.value,
     search: searchBy,
     page,
-    page_size: 20,
+    page_size: 100,
   };
   const useEffectDeps = [
     selectedGenre,
@@ -54,6 +54,8 @@ const GameGrids = ({
               <GameCard game={game} />
             </GameCardContainer>
           ))}
+
+        {!loading && data.length === 0 && <Text>No game found.</Text>}
       </SimpleGrid>
     </>
   );
