@@ -7,9 +7,12 @@ import {
   DrawerContent,
   DrawerCloseButton,
   Divider,
+  Skeleton,
+  SkeletonCircle,
+  SkeletonText,
+  Box,
 } from "@chakra-ui/react";
 import useGameDetails from "../hooks/useGameDetails";
-import PlatformIcons from "./PlatformIcons";
 interface Props {
   id: number | null;
   isOpen: boolean;
@@ -18,36 +21,50 @@ interface Props {
 const GameDetails = ({ id, isOpen, onClose }: Props) => {
   if (!id) return null;
 
-  const { data } = useGameDetails(id);
+  const { data, loading, err } = useGameDetails(id);
+
+  if (err) return null;
 
   return (
     <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
       <DrawerOverlay />
+
       <DrawerContent>
-        <DrawerCloseButton />
-        <DrawerHeader>{data.name}</DrawerHeader>
-
-        <DrawerBody>
-          {data?.description && (
-            <div dangerouslySetInnerHTML={{ __html: data?.description }} />
-          )}
-          <Divider marginY={4} />
-          {data?.website && (
-            <p>
-              <b>Website: </b>
-              <a href={data.website} target="_blank">
-                {data.website}
-              </a>
-            </p>
-          )}
-          {data?.released && (
-            <p>
-              <b> Release Date:</b> {data.released}
-            </p>
-          )}
-        </DrawerBody>
-
-        <DrawerFooter></DrawerFooter>
+        {!loading && (
+          <>
+            <DrawerCloseButton />
+            <DrawerHeader>{data.name}</DrawerHeader>
+            <DrawerBody>
+              {data?.description && (
+                <div dangerouslySetInnerHTML={{ __html: data?.description }} />
+              )}
+              <Divider marginY={4} />
+              {data?.website && (
+                <p>
+                  <b>Website: </b>
+                  <a href={data.website} target="_blank">
+                    {data.website}
+                  </a>
+                </p>
+              )}
+              {data?.released && (
+                <p>
+                  <b> Release Date:</b> {data.released}
+                </p>
+              )}
+            </DrawerBody>
+          </>
+        )}
+        {loading && (
+          <SkeletonText
+            mt="4"
+            noOfLines={90}
+            spacing="4"
+            skeletonHeight="3"
+            startColor="#cc99ff"
+            endColor="#66ff66"
+          />
+        )}
       </DrawerContent>
     </Drawer>
   );
