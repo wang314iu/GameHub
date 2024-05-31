@@ -1,7 +1,7 @@
 import { Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
 import useParentPlatforms from "../hooks/useParentPlatforms";
 import { BsChevronDown } from "react-icons/bs";
-import { Platform } from "../hooks/useParentPlatforms";
+import { Platform } from "../types";
 
 interface Props {
   onSelectPlatform: (platform: Platform) => void;
@@ -16,8 +16,7 @@ const PlatformDropdown = ({ onSelectPlatform, selectedPlatform }: Props) => {
   return (
     <Menu>
       <MenuButton
-        size={{ base: "sm", md: "md" }}
-        // marginY={3}
+        size={{ base: "sm" }}
         as={Button}
         rightIcon={<BsChevronDown />}
       >

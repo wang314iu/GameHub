@@ -6,6 +6,8 @@ import {
   PlatformDropdown,
   SortedByDropdown,
   GameHeading,
+  GenreDropdown,
+  LoadMore,
 } from "./components";
 import { useState } from "react";
 import { Platform, SortBy, Genre } from "./types";
@@ -17,6 +19,7 @@ function App() {
   );
   const [sortBy, setSortBy] = useState<SortBy | null>(null);
   const [searchBy, setSearchBy] = useState("");
+  const [page, setPage] = useState(1);
 
   return (
     <Grid
@@ -66,7 +69,16 @@ function App() {
           genre={selectedGenre?.name}
           platform={selectedPlatform?.name}
         />
-        <HStack justifyContent="space-between" marginY={6}>
+        <HStack
+          justifyContent={{ base: "flex-end", lg: "space-between" }}
+          marginY={6}
+        >
+          <Show below="md">
+            <GenreDropdown
+              selectedGenre={selectedGenre}
+              onSelectGenre={setSelectedGenre}
+            />
+          </Show>
           <PlatformDropdown
             onSelectPlatform={setSelectedPlatform}
             selectedPlatform={selectedPlatform}
@@ -81,7 +93,9 @@ function App() {
           selectedPlatform={selectedPlatform}
           sortBy={sortBy}
           searchBy={searchBy}
+          page={page}
         />
+        {/* <LoadMore onLoadNextPage={() => setPage(page + 1)} /> */}
       </GridItem>
     </Grid>
   );

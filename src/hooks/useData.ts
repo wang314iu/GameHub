@@ -8,7 +8,7 @@ interface FetchResponse<T> {
 }
 
 const useData = <T>(endpoint: string, params: object = {}, deps?: any[]) => {
-  const [data, setData] = useState<T[]>([]); // data is array of type T
+  const [data, setData] = useState<T[]>([]);
   const [err, setErr] = useState("");
   const [loading, setLoading] = useState(false);
 

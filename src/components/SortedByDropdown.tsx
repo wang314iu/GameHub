@@ -1,6 +1,6 @@
 import { Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
-import { SortBy } from "../hooks/useGames";
+import { SortBy } from "../types";
 interface Props {
   onSelectSortOrder: (sortOrder: SortBy) => void;
   selectedSortOrder: SortBy | null;
@@ -11,7 +11,7 @@ const SortedByDropdown = ({ onSelectSortOrder, selectedSortOrder }: Props) => {
     { name: "Rating", value: "-rating" },
     { name: "Release Date", value: "-released" },
     { name: "Popularity", value: "-metacritic" },
-    { name: "Data Added", value: "-added" },
+    { name: "Add Date", value: "-added" },
   ];
   return (
     <Menu>
@@ -20,9 +20,8 @@ const SortedByDropdown = ({ onSelectSortOrder, selectedSortOrder }: Props) => {
         // marginY={3}
         as={Button}
         rightIcon={<BsChevronDown />}
-        width="220px"
       >
-        Sort By: {selectedSortOrder?.name || "Relevance"}
+        By {selectedSortOrder?.name || "Relevance"}
       </MenuButton>
       <MenuList>
         {sortBy.map(({ name, value }) => (

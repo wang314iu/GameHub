@@ -7,9 +7,11 @@ interface Props {
 
 const GameHeading = ({ genre = "", platform = "" }: Props) => {
   return (
-    <Heading size="2xl" marginTop={5}>
-      {`${platform} ${genre} Games`}{" "}
-    </Heading>
+    <>
+      <Heading size="2xl" marginTop={7}>
+        {`${platform} ${genre} Games`}{" "}
+      </Heading>
+    </>
   );
 };
 export default GameHeading;

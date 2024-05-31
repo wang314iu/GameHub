@@ -1,11 +1,4 @@
-import {
-  HStack,
-  List,
-  ListItem,
-  Image,
-  Button,
-  SkeletonText,
-} from "@chakra-ui/react";
+import { List, ListItem, Image, Button } from "@chakra-ui/react";
 import { Genre } from "../types";
 import getCroppedImgUrl from "../services/img-url";
 import Genres from "../assets/genres.json";

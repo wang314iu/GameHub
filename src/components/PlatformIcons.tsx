@@ -35,7 +35,7 @@ const PlatformIcons = ({ platforms }: Props) => {
       {platforms.map((platform) => (
         //todo: adding id
         <Icon
-          size="md"
+          size="25px"
           key={platform.id}
           color="#cdccff"
           as={mapping[platform.slug]}
