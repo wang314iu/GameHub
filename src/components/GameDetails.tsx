@@ -28,8 +28,7 @@ const GameDetails = ({ id, isOpen, onClose }: Props) => {
   return (
     <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
       <DrawerOverlay />
-
-      <DrawerContent>
+      <DrawerContent pt={4}>
         {!loading && (
           <>
             <DrawerCloseButton />
@@ -57,10 +56,10 @@ const GameDetails = ({ id, isOpen, onClose }: Props) => {
         )}
         {loading && (
           <SkeletonText
-            mt="4"
+            m="4"
             noOfLines={90}
-            spacing="4"
-            skeletonHeight="3"
+            spacing="5"
+            skeletonHeight="4"
             startColor="#cc99ff"
             endColor="#66ff66"
           />

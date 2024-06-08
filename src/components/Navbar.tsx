@@ -18,13 +18,15 @@ const NavBar = ({ onSearch }: Props) => {
       bg={bgColor}
       boxShadow="0px 4px 25px #9c88d2"
     >
-      <Image
-        borderRadius={10}
-        src={Duck}
-        boxSize="50px"
-        padding={"5px"}
-        bg="linear-gradient(135deg, #66ff66, #cc99ff)"
-      ></Image>
+      <a href="https://alice-portfolio-six.vercel.app/">
+        <Image
+          borderRadius={10}
+          src={Duck}
+          boxSize="50px"
+          padding={"5px"}
+          bg="linear-gradient(135deg, #66ff66, #cc99ff)"
+        ></Image>
+      </a>
       <GameSearch onSearch={onSearch} />
       <ThemeSwitch />
     </HStack>
